@@ -14,7 +14,7 @@ light.castShadow = true;
 scene.add(light);
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
-camera.position.set(1.5, 0.75, 2);
+camera.position.set(5.5, 2.75, 5);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -41,13 +41,13 @@ let watch: THREE.Mesh;
 let watchBody: CANNON.Body;
 
 const loader = new GLTFLoader();
-loader.load('models/test.glb', (gltf) => {
-  watch = gltf.scene.getObjectByName('watch') as THREE.Mesh; // Adjust 'MainWatchMesh' if needed
+loader.load('models/hand.glb', (gltf) => {
+  watch = gltf.scene.getObjectByName('hand') as THREE.Mesh; // Adjust 'MainWatchMesh' if needed
   if (watch) {
     watch.castShadow = true;
 
     // Replace with the appropriate CANNON.Shape for your model
-    const watchShape = new CANNON.Box(new CANNON.Vec3(0.5, 0.5, 0.5)); // Temporary placeholder
+    const watchShape = new CANNON.Box(new CANNON.Vec3(0.5, 2.5, 0.5)); // Temporary placeholder
 
     watchBody = new CANNON.Body({ mass: 1 });
     watchBody.addShape(watchShape);
